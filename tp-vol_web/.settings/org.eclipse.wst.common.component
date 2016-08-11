@@ -4,6 +4,9 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="banque-jpa-spring-eric-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/banque-jpa-spring-eric/banque-jpa-spring-eric">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="tp-vol_web"/>
         <property name="java-output-path" value="/tp-vol_web/target/classes"/>
     </wb-module>
