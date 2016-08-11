@@ -1,4 +1,4 @@
-package banque.web;
+package agence.web;
 
 import java.util.List;
 
