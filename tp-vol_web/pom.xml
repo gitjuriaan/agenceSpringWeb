@@ -30,9 +30,10 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.2.RELEASE</version>
 		</dependency>
+
 		<dependency>
 			<groupId>sopra.formation</groupId>
-			<artifactId>banque-jpa-spring-eric</artifactId>
+			<artifactId>tp-vol_data</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
