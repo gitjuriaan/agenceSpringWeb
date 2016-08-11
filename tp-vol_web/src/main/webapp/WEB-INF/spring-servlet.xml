@@ -15,7 +15,7 @@
 
 	<mvc:annotation-driven validator="validator" />
 
-	<context:component-scan base-package="exemple,banque.web" />
+	<context:component-scan base-package="agence.web" />
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
