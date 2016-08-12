@@ -23,6 +23,11 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 
 /**
  * @author ajc
@@ -50,16 +55,7 @@ public abstract class Client {
 	private Login Log;
 
 	
-	 @Column(name = "typeClient", insertable = false, updatable = false)
-	public String getTypeClient() {
-		return typeClient;
-	}
-
-	public void setTypeClient(String typeClient) {
-		this.typeClient = typeClient;
-	}
-
-	public Client() {
+	 public Client() {
 	}
 
 	public Client(int idCli) {
@@ -68,15 +64,13 @@ public abstract class Client {
 		this.idCli = idCli;
 	}
 
-	public void setIdCli(Integer idCli) {
-		this.idCli = idCli;
-	}
-
 	@Embedded
+	@Valid
 	public Adresse getAdresse() {
 		return adresse;
 	}
 
+	@Email(message="{client.error.email.format}")
 	public String getEmail() {
 		return email;
 	}
@@ -87,26 +81,14 @@ public abstract class Client {
 		return idCli;
 	}
 
-
-
-	@OneToMany(mappedBy="client")
-	public List<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(List<Reservation> reservations) {
-		this.reservations = reservations;
-	}
-
 	@Embedded
+	@Valid
 	public Login getLog() {
 		return Log;
 	}
 	
-	public void setLog(String login, String motdepasse, boolean admin){
-		this.Log = new Login(login, motdepasse, admin);
-	}
-
+	@Length(min=1, message="{client.error.nom.size}")
+	@NotNull(message="{client.error.nom.size}")
 	public String getNom() {
 		return nom;
 	}
@@ -115,15 +97,27 @@ public abstract class Client {
 		return numeroFax;
 	}
 
+
+
 	public String getNumeroTel() {
 		return numeroTel;
+	}
+
+	@OneToMany(mappedBy="client")
+	public List<Reservation> getReservations() {
+		return reservations;
 	}
 
 	@Enumerated (EnumType.STRING)
 	public Titre getTitre() {
 		return titre;
 	}
-
+	
+	@Column(name = "typeClient", insertable = false, updatable = false)
+	public String getTypeClient() {
+		return typeClient;
+	}
+	
 	@Version
 	public int getVersion() {
 		return version;
@@ -137,14 +131,22 @@ public abstract class Client {
 		this.email = email;
 	}
 
+	public void setIdCli(Integer idCli) {
+		this.idCli = idCli;
+	}
 
 	public void setLog(Login log) {
 		Log = log;
 	}
 
+	public void setLog(String login, String motdepasse, boolean admin){
+		this.Log = new Login(login, motdepasse, admin);
+	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 
 	public void setNumeroFax(String numeroFax) {
 		this.numeroFax = numeroFax;
@@ -154,8 +156,16 @@ public abstract class Client {
 		this.numeroTel = numeroTel;
 	}
 
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
+
 	public void setTitre(Titre titre) {
 		this.titre = titre;
+	}
+
+	public void setTypeClient(String typeClient) {
+		this.typeClient = typeClient;
 	}
 
 	public void setVersion(int version) {

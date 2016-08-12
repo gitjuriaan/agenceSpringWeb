@@ -23,11 +23,6 @@
 			<legend>Edition du client </legend>
 			
 			
-<%-- 			<c:url var="save"    value="/actions/message/add" /> --%>
-<%-- 			<c:if test="${client.typeClient.equals('EI')}">value="saveEI"</c:if> --%>
-<%-- 			<c:if test="${client.typeClient.equals('Moral')}">value="saveMoral"</c:if> --%>
-<%-- 			<c:if test="${client.typeClient.equals('Physique')}">value="savePhysique"</c:if> --%>
-			
 			 
 		
 			<form:form method="post" modelAttribute="client" action="${type}">

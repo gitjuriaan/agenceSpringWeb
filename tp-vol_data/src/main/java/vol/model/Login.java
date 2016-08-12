@@ -2,6 +2,8 @@ package vol.model;
 
 import javax.persistence.Embeddable;
 
+import org.hibernate.validator.constraints.Length;
+
 @Embeddable
 public class Login {
 
@@ -13,13 +15,14 @@ public class Login {
 		super();
 	}
 	
+	
 	public Login(String login, String motDePasse, Boolean admin) {
 		super();
 		this.login = login;
 		this.motDePasse = motDePasse;
 		this.admin = admin;
 	}
-
+	@Length(min=8, message="{client.error.login.size}")
 	public String getLogin() {
 		return login;
 	}
@@ -27,7 +30,8 @@ public class Login {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-
+	
+	@Length(min=8, message="{client.error.login.size}")
 	public String getMotDePasse() {
 		return motDePasse;
 	}
@@ -35,7 +39,7 @@ public class Login {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-
+	
 	public Boolean getAdmin() {
 		return admin;
 	}
