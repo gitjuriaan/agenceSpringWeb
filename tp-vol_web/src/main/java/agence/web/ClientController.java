@@ -109,6 +109,7 @@ public class ClientController {
 		if(result.hasErrors()) {
 			
 			model.addAttribute("titre", Titre.values());
+			model.addAttribute("type", "saveEI");
 			return "clientEdit";
 		}
 		
@@ -127,6 +128,7 @@ public class ClientController {
 		if(result.hasErrors()) {
 			
 			model.addAttribute("titre", Titre.values());
+			model.addAttribute("type", "saveMoral");
 			return "clientEdit";
 		}
 		
@@ -145,6 +147,7 @@ public class ClientController {
 		if(result.hasErrors()) {
 			
 			model.addAttribute("titre", Titre.values());
+			model.addAttribute("type", "savePhysique");
 			return "clientEdit";
 		}
 		
