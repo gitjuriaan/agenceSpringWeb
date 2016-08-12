@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div id="container">
+<div class="container">
 
 		<jsp:include page="menu.jsp">
 			<jsp:param name="page" value="vol" />
@@ -22,31 +22,42 @@
 		
 		<fieldset>
 			<legend><spring:message code="volEdit.titre"/></legend>
-			<form:form method="post" modelAttribute="vol" class="form-inline" action="save">
+		
+			<form:form method="post" modelAttribute="vol" action="save">
+				
 				<form:hidden path="idVol"/>
 				<form:hidden path="version"/>
-				<div  >
+				
+				<div class="form-group">
 					<form:label path="dateDepart"><spring:message code="volEdit.dateDepart"/></form:label>
 					<form:input path="dateDepart" class="form-control" type = "date"/>
+					<form:errors path="dateDepart" class="label label-danger" />
 				</div>
-				<div  >
+				
+				<div class="form-group" >
 					<form:label path="dateArrivee"><spring:message code="volEdit.dateArrivee"/></form:label>
 					<form:input path="dateArrivee" class="form-control" type = "date"/>
-				</div>
-				<div  >
+					<c:if test="${mode eq 'error'}">
+						<p class="label label-danger" ><spring:message code="volEdit.date.error.arriveeAvtDepart"/></p>
+					</c:if>
+					<form:errors path="dateArrivee" class="label label-danger" />
+				</div>		
+						
+				<div class="form-group" >
 					<form:label path="heureDepart"><spring:message code="volEdit.heureDepart"/></form:label>
 					<form:input path="heureDepart" class="form-control" type = "time"/>
 				</div>
-				<div  >
+				
+				<div  class="form-group">
 					<form:label path="heureArrivee"><spring:message code="volEdit.heureArrivee"/></form:label>
 					<form:input path="heureArrivee" class="form-control" type = "time"/>
 				</div>
 
-<!-- 				<div > -->
+<!-- 				<div class="form-group" > -->
 <%-- 					<form:label path="aeroportDepart"><spring:message code="volEdit.aeroportDepart"/></form:label> --%>
 <%-- 					<form:input path="aeroportDepart" class="form-control" /> --%>
 <!-- 				</div> -->
-<!-- 				<div > -->
+<!-- 				<div class="form-group"> -->
 <%-- 					<form:label path="aeroportArrivee"><spring:message code="volEdit.aeroportArrivee"/></form:label> --%>
 <%-- 					<form:input path="aeroportArrivee" class="form-control" /> --%>
 <!-- 				</div> -->

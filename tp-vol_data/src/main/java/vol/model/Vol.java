@@ -10,12 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.Future;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -101,14 +101,17 @@ public class Vol {
 		return compagnieAerienneVols;
 	}
 	
+		
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Future(message="{volEdit.date.error}")
 	public Date getDateArrivee() {
 		return dateArrivee;
 	}
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Future(message="{volEdit.date.error}")
 	public Date getDateDepart() {
 		return dateDepart;
 	}
