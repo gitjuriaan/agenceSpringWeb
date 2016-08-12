@@ -12,6 +12,7 @@
 <title><spring:message code="menu.home" /></title>
 </head>
 <body>
+
 	<div class="container">
 
 
@@ -53,6 +54,16 @@
 								code="menu.compagnieAerienne" /></a></li>
 				</c:if>
 
+				<c:if test="${param.page.equals('compagnieAerienneVol')}">
+					<li class="active"><a
+						href="/tp-vol_web/compagnieAerienneVol/list"><spring:message
+								code="menu.compagnieAerienne" /></a></li>
+				</c:if>
+				<c:if test="${!param.page.equals('compagnieAerienneVol')}">
+					<li><a href="/tp-vol_web/compagnieAerienneVol/list"><spring:message
+								code="menu.compagnieAerienneVol" /></a></li>
+				</c:if>
+
 				<c:if test="${param.page.equals('passager')}">
 					<li class="active"><a href="/tp-vol_web/passager/list"><spring:message
 								code="menu.passager" /></a></li>
@@ -80,13 +91,18 @@
 								code="menu.vol" /></a></li>
 				</c:if>
 
+				<c:if test="${param.page.equals('ville')}">
+					<li class="active"><a href="/tp-vol_web/ville/list"><spring:message
+								code="menu.ville" /></a></li>
+				</c:if>
+				<c:if test="${!param.page.equals('ville')}">
+					<li><a href="/tp-vol_web/ville/list"><spring:message
+								code="menu.ville" /></a></li>
+				</c:if>
+
 			</ul>
 
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">
-						<spring:message
-								code="menu.login" /></a></li>
-			</ul>
+
 		</div>
 		</nav>
 
