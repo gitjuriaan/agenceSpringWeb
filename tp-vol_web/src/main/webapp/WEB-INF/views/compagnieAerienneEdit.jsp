@@ -15,7 +15,7 @@
 </head>
 <body>
 
-	<div id="container">
+	<div class="container">
 
 		<jsp:include page="menu.jsp">
 			<jsp:param name="page" value="compagnieAerienne" />

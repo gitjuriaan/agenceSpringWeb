@@ -35,8 +35,8 @@
 					<td>${reservation.numero}</td>
 					<td><fmt:formatDate value="${reservation.date}"
 							pattern="dd/MM/yyyy" /></td>
-					<td><a href="edit?id=${reservation.idRes}" class="btn btn-info btn-xs"><spring:message code="reservation.edition"/></a></td>
-					<td><a href="delete?id=${reservation.idRes}" class="btn btn-info btn-xs"><spring:message code="reservation.suppression"/></a></td>
+					<td><a href="edit?id=${reservation.idRes}" class="btn btn-info btn-xs"><spring:message code="reservation.editer"/></a></td>
+					<td><a href="delete?id=${reservation.idRes}" class="btn btn-info btn-xs"><spring:message code="reservation.supprimer"/></a></td>
 				</tr>
 			</c:forEach>
 			<tr>
