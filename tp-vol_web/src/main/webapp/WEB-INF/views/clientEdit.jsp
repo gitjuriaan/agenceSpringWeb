@@ -41,12 +41,13 @@
 						<form:option value="" label="Veuillez sélectionner une civilité" />
 						<c:forEach items="${titre}" var="titre">						
 							<form:option value="${titre}">
-								<spring:message code="${titre.label}" />
+<%-- 								<spring:message code="${titre.label}" /> --%>
 							</form:option>
 						</c:forEach>
 					</form:select>
 					<form:errors path="titre"/>
 				</div>
+				
 				<div class="form-group">
 					<form:label path="nom"><spring:message code="client.nom"/></form:label>
 					<form:input path="nom" class="form-control" />
@@ -78,48 +79,48 @@
 
 
 				<div class="form-group">
-					<form:label path="adresse.adresse"><spring:message code="clientEdit.adresse.rue"/></form:label>
+					<form:label path="adresse.adresse"><spring:message code="client.adresse.rue"/></form:label>
 					<form:input path="adresse.adresse" class="form-control" />
 					<form:errors path="adresse.adresse"/>
 				</div>
 
 				<div class="form-group">
-					<form:label path="adresse.codePostal"><spring:message code="clientEdit.adresse.codePostal"/></form:label>
+					<form:label path="adresse.codePostal"><spring:message code="client.adresse.codePostal"/></form:label>
 					<form:input path="adresse.codePostal" class="form-control" />
 					<form:errors path="adresse.codePostal"/>
 				</div>
 
 				<div class="form-group">
-					<form:label path="adresse.ville"><spring:message code="clientEdit.adresse.ville"/></form:label>
+					<form:label path="adresse.ville"><spring:message code="client.adresse.ville"/></form:label>
 					<form:input path="adresse.ville" class="form-control" />
 					<form:errors path="adresse.ville"/>
 				</div>
 				
 				<div class="form-group">
-					<form:label path="adresse.pays"><spring:message code="clientEdit.adresse.pays"/></form:label>
+					<form:label path="adresse.pays"><spring:message code="client.adresse.pays"/></form:label>
 					<form:input path="adresse.pays" class="form-control" />
 					<form:errors path="adresse.pays"/>
 				</div>
 				
 				<div class="form-group">
-					<form:label path="login.login"><spring:message code="client.login.log"/></form:label>
-					<form:input path="login.login" class="form-control" />
-					<form:errors path="login.login"/>
+					<form:label path="log.login"><spring:message code="client.login.log"/></form:label>
+					<form:input path="log.login" class="form-control" />
+					<form:errors path="log.login"/>
 				</div>
 				
 				<div class="form-group">
-					<form:label path="login.motDePasse"><spring:message code="client.login.mdp"/></form:label>
-					<form:input path="login.motDePasse" class="form-control" />
-					<form:errors path="login.motDePasse"/>
+					<form:label path="log.motDePasse"><spring:message code="client.login.mdp"/></form:label>
+					<form:input path="log.motDePasse" class="form-control" />
+					<form:errors path="log.motDePasse"/>
 				</div>
 				
 				<div class="form-group">
-					<form:label path="login.admin"><spring:message code="client.login.admin"/></form:label>
-					<form:input path="login.admin" class="form-control" />
-					<form:errors path="login.admin"/>
+					<form:label path="log.admin"><spring:message code="client.login.admin"/></form:label>
+					<form:input path="log.admin" class="form-control" />
+					<form:errors path="log.admin"/>
 				</div>
 
-				<input type="submit" value="<spring:message code="clientEdit.valider"/>" class="btn btn-default" />
+				<input type="submit" value="<spring:message code="client.valider"/>" class="btn btn-default" />
 
 			</form:form>
 		</fieldset>

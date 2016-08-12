@@ -16,6 +16,11 @@
 <body>
 
 	<div class="container">
+	
+	<jsp:include page="menu.jsp">
+			<jsp:param name="page" value="client" />
+		</jsp:include>
+	
 		<h2>
 			<spring:message code="client.header" />
 		</h2>
@@ -29,8 +34,8 @@
 				<th><spring:message code="client.prenom" /></th>
 				<th><spring:message code="client.siret" /></th>
 				<th>Email</th>
-				<th><spring:message code="client.telephone" /></th>
-				<th><spring:message code="client.fax" /></th>
+				<th><spring:message code="client.numeroTel" /></th>
+				<th><spring:message code="client.numeroFax" /></th>
 
 				<th><spring:message code="client.adresse.rue" /></th>
 				<th><spring:message code="client.adresse.codePostal" /></th>
@@ -83,9 +88,9 @@
 
 
 
-					<td><a href="edit?idCli=${client.idCli}"><spring:message
+					<td><a href="edit?idCli=${client.idCli}" class="btn btn-info"><spring:message
 								code="client.edition" /></a></td>
-					<td><a href="delete?idCli=${client.idCli}"><spring:message
+					<td><a href="delete?idCli=${client.idCli}" class="btn btn-info"><spring:message
 								code="client.suppression" /></a></td>
 
 
@@ -93,8 +98,12 @@
 			</c:forEach>
 
 			<tr>
-				<td colspan="18"><a href="add"><spring:message
-							code="client.ajouter" /></a></td>
+				<td colspan="1"><a href="addEI" class="btn btn-info"><spring:message
+							code="client.ajouterEI" /></a></td>
+				<td colspan="1"><a href="addMoral" class="btn btn-info"><spring:message
+							code="client.ajouterMoral" /></a></td>
+				<td colspan="18"><a href="addPhysique" class="btn btn-info"><spring:message
+							code="client.ajouterPhysique" /></a></td>
 			</tr>
 
 		</table>
