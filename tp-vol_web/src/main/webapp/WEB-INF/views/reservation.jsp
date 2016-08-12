@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<spring:url value="/resources/bootstrap.css" var="bootstrap" />
+<link href="${bootstrap}" rel="stylesheet" />
 <title><spring:message code="reservation.titre"/></title>
 </head>
 <body>
@@ -16,7 +18,7 @@
 		</jsp:include>
 		
 		<h2><spring:message code="reservation.titre"/></h2>
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<th><spring:message code="reservation.id"/></th>
 				<th><spring:message code="reservation.etatReservation"/></th>
@@ -33,12 +35,12 @@
 					<td>${reservation.numero}</td>
 					<td><fmt:formatDate value="${reservation.date}"
 							pattern="dd/MM/yyyy" /></td>
-					<td><a href="edit?id=${reservation.idRes}" ><spring:message code="reservation.edition"/></a></td>
-					<td><a href="delete?id=${reservation.idRes}" ><spring:message code="reservation.suppression"/></a></td>
+					<td><a href="edit?id=${reservation.idRes}" class="btn btn-info btn-xs"><spring:message code="reservation.edition"/></a></td>
+					<td><a href="delete?id=${reservation.idRes}" class="btn btn-info btn-xs"><spring:message code="reservation.suppression"/></a></td>
 				</tr>
 			</c:forEach>
 			<tr>
-				<td ><a href="add" ><spring:message code="reservation.ajouter"/></a></td>
+				<td colspan="9"><a href="add" class="btn btn-info"><spring:message code="reservation.ajouter"/></a></td>
 			</tr>
 		</table>
 	</div>
