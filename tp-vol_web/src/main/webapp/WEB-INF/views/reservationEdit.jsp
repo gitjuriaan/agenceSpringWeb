@@ -12,6 +12,9 @@
 </head>
 <body>
 <div class="container">
+<jsp:include page="menu.jsp">
+			<jsp:param name="page" value="reservation" />
+		</jsp:include>
 		<fieldset>
 			<legend><spring:message code="reservation.edit"/></legend>
 			<form:form method="post" modelAttribute="reservation" action="save">
@@ -19,12 +22,12 @@
 				<form:hidden path="version" />
 				
 				<div class="form-group">
-					<form:label path="etatRerservation" class="control-label"><spring:message code="reservation.etatReservation"/></form:label>
-					<form:select path="etatRerservation" class="form-control">
+					<form:label path="etatReservation" class="control-label"><spring:message code="reservation.etatReservation"/></form:label>
+					<form:select path="etatReservation" class="form-control">
 						<form:option value="" label="Veuillez sélectionner l'état de votre réservation" />
-						<c:forEach items="${etatRerservations}" var="etatRerservation">						
-							<form:option value="${etatRerservation}">
-								<spring:message code="${etatRerservation.label}" />
+						<c:forEach items="${etatReservations}" var="etatRerservation">						
+							<form:option value="${etatReservation}">
+								<spring:message code="${etatReservation.label}" />
 							</form:option>
 						</c:forEach>
 					</form:select>

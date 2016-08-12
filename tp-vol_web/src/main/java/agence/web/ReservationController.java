@@ -38,7 +38,7 @@ public class ReservationController {
 	public String add(Model model) {
 		
 		model.addAttribute("reservation",new Reservation());
-		model.addAttribute("etatReservation", EtatReservation.values());
+		model.addAttribute("etatReservations", EtatReservation.values());
 		
 		return "reservationEdit";
 	}
@@ -48,7 +48,7 @@ public class ReservationController {
 		Reservation reservation = reservationDao.find(id);
 		
 		model.addAttribute("reservation", reservation);
-		model.addAttribute("etatReservation", EtatReservation.values());
+		model.addAttribute("etatReservations", EtatReservation.values());
 		
 		return "reservationEdit";
 	}
@@ -76,7 +76,7 @@ public class ReservationController {
 		
 		reservationDao.delete(reservation);
 		
-		return new ModelAndView("reservations", "reservations", reservationDao.findAll()); // s ou sans s
+		return new ModelAndView("reservation", "reservations", reservationDao.findAll()); // s ou sans s
 	}
 	
 	
