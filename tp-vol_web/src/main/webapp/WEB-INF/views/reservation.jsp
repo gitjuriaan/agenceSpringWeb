@@ -11,8 +11,8 @@
 <link href="${bootstrap}" rel="stylesheet" />
 <title><spring:message code="reservation.titre"/></title>
 </head>
-<body>
-<div >
+<body >
+<div class="container">
 <jsp:include page="menu.jsp">
 			<jsp:param name="page" value="reservation" />
 		</jsp:include>
@@ -25,7 +25,7 @@
 				<th><spring:message code="reservation.numero"/></th>
 				<th><spring:message code="reservation.date"/></th>
 				
-				<th></th>
+				<th colspan="2"></th>
 			</tr>
 
 			<c:forEach items="${reservations}" var="reservation">
