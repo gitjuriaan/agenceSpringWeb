@@ -158,8 +158,8 @@ public class ClientController {
 	}
 	
 	@RequestMapping("/delete")
-	public ModelAndView delete(@RequestParam(name="id") Integer id) {
-		Client client = clientDao.find(id);
+	public ModelAndView delete(@RequestParam(name="idCli") Integer idCli) {
+		Client client = clientDao.find(idCli);
 		
 		clientDao.delete(client);
 		
