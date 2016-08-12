@@ -47,14 +47,14 @@
 				<div class="form-group">
 					<form:label path="nom"><spring:message code="client.nom"/></form:label>
 					<form:input path="nom" class="form-control" />
-					<form:errors path="nom"/>
+					<form:errors path="nom" class="label label-danger"/>
 				</div>
 
 				<c:if test="${client.typeClient.equals('EI')}">
 					<div class="form-group">
 					<form:label path="prenom"><spring:message code="client.prenom"/></form:label>
 					<form:input path="prenom" class="form-control" />
-					<form:errors path="prenom"/>
+					<form:errors path="prenom" class="label label-danger"/>
 				</div>
 				</c:if>
 				
@@ -62,7 +62,7 @@
 					<div class="form-group">
 					<form:label path="prenom"><spring:message code="client.prenom"/></form:label>
 					<form:input path="prenom" class="form-control" />
-					<form:errors path="prenom"/>
+					<form:errors path="prenom" class="label label-danger"/>
 				</div>
 				</c:if>
 				
@@ -70,7 +70,7 @@
 					<div class="form-group">
 					<form:label path="siret"><spring:message code="client.siret"/></form:label>
 					<form:input path="siret" class="form-control" />
-					<form:errors path="siret"/>
+					<form:errors path="siret" class="label label-danger"/>
 				</div>
 				</c:if>
 
@@ -80,7 +80,7 @@
 				<div class="form-group">
 					<form:label path="email">E-mail :</form:label>
 					<form:input path="email" class="form-control" />
-					<form:errors path="email"/>
+					<form:errors path="email" class="label label-danger"/>
 				</div>
 
 				<div class="form-group">
@@ -97,43 +97,43 @@
 				<div class="form-group">
 					<form:label path="adresse.adresse"><spring:message code="client.adresse.rue"/></form:label>
 					<form:input path="adresse.adresse" class="form-control" />
-					<form:errors path="adresse.adresse"/>
+					<form:errors path="adresse.adresse" class="label label-danger"/>
 				</div>
 
 				<div class="form-group">
 					<form:label path="adresse.codePostal"><spring:message code="client.adresse.codePostal"/></form:label>
 					<form:input path="adresse.codePostal" class="form-control" />
-					<form:errors path="adresse.codePostal"/>
+					<form:errors path="adresse.codePostal" class="label label-danger"/>
 				</div>
 
 				<div class="form-group">
 					<form:label path="adresse.ville"><spring:message code="client.adresse.ville"/></form:label>
 					<form:input path="adresse.ville" class="form-control" />
-					<form:errors path="adresse.ville"/>
+					<form:errors path="adresse.ville" class="label label-danger"/>
 				</div>
 				
 				<div class="form-group">
 					<form:label path="adresse.pays"><spring:message code="client.adresse.pays"/></form:label>
 					<form:input path="adresse.pays" class="form-control" />
-					<form:errors path="adresse.pays"/>
+					<form:errors path="adresse.pays" class="label label-danger"/>
 				</div>
 				
 				<div class="form-group">
 					<form:label path="log.login"><spring:message code="client.login.log"/></form:label>
 					<form:input path="log.login" class="form-control" />
-					<form:errors path="log.login"/>
+					<form:errors path="log.login" class="label label-danger"/>
 				</div>
 				
 				<div class="form-group">
 					<form:label path="log.motDePasse"><spring:message code="client.login.mdp"/></form:label>
 					<form:input path="log.motDePasse" class="form-control" />
-					<form:errors path="log.motDePasse"/>
+					<form:errors path="log.motDePasse" class="label label-danger"/>
 				</div>
 				
 				<div class="form-group">
 					<form:label path="log.admin"><spring:message code="client.login.admin"/></form:label>
 					<form:input path="log.admin" class="form-control" />
-					<form:errors path="log.admin"/>
+					<form:errors path="log.admin" class="label label-danger"/>
 				</div>
 
 				<input type="submit" value="<spring:message code="client.valider"/>" class="btn btn-default" />
