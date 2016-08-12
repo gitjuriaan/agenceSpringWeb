@@ -1,6 +1,5 @@
 package vol.model;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @author ajc
@@ -36,11 +40,11 @@ public class Vol {
 	/**
 	 * heure départ du vol
 	 */
-	private Time heureDepart;
+	private Date heureDepart;
 	/**
 	 * heure d'arrivée du vol
 	 */
-	private Time heureArrivee;
+	private Date heureArrivee;
 	private Aeroport aeroportDepart;
 	private Aeroport aeroportArrivee;
 	/**
@@ -96,9 +100,15 @@ public class Vol {
 	public List<CompagnieAerienneVol> getCompagnieAerienneVols() {
 		return compagnieAerienneVols;
 	}
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public Date getDateArrivee() {
 		return dateArrivee;
 	}
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public Date getDateDepart() {
 		return dateDepart;
 	}
@@ -108,11 +118,15 @@ public class Vol {
 		return escales;
 	}
 
-	public Time getHeureArrivee() {
+	@Temporal(TemporalType.TIME)
+	@DateTimeFormat(pattern="HH:mm")
+	public Date getHeureArrivee() {
 		return heureArrivee;
 	}
 
-	public Time getHeureDepart() {
+	@Temporal(TemporalType.TIME)
+	@DateTimeFormat(pattern="HH:mm")
+	public Date getHeureDepart() {
 		return heureDepart;
 	}
 
@@ -151,11 +165,11 @@ public class Vol {
 		this.escales = escales;
 	}
 
-	public void setHeureArrivee(Time heureArrivee) {
+	public void setHeureArrivee(Date heureArrivee) {
 		this.heureArrivee = heureArrivee;
 	}
 
-	public void setHeureDepart(Time heureDepart) {
+	public void setHeureDepart(Date heureDepart) {
 		this.heureDepart = heureDepart;
 	}
 

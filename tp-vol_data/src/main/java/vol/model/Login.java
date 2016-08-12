@@ -5,7 +5,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Login {
 
-	private String Login;
+	private String login;
 	private String motDePasse;
 	private Boolean admin;
 	
@@ -15,17 +15,17 @@ public class Login {
 	
 	public Login(String login, String motDePasse, Boolean admin) {
 		super();
-		Login = login;
+		this.login = login;
 		this.motDePasse = motDePasse;
 		this.admin = admin;
 	}
 
 	public String getLogin() {
-		return Login;
+		return login;
 	}
 
 	public void setLogin(String login) {
-		Login = login;
+		this.login = login;
 	}
 
 	public String getMotDePasse() {
@@ -46,14 +46,14 @@ public class Login {
 
 	@Override
 	public String toString() {
-		return "Login [Login=" + Login + ", motDePasse=" + motDePasse + ", admin=" + admin + "]";
+		return "Login [Login=" + login + ", motDePasse=" + motDePasse + ", admin=" + admin + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Login == null) ? 0 : Login.hashCode());
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((admin == null) ? 0 : admin.hashCode());
 		result = prime * result + ((motDePasse == null) ? 0 : motDePasse.hashCode());
 		return result;
@@ -68,10 +68,10 @@ public class Login {
 		if (getClass() != obj.getClass())
 			return false;
 		Login other = (Login) obj;
-		if (Login == null) {
-			if (other.Login != null)
+		if (login == null) {
+			if (other.login != null)
 				return false;
-		} else if (!Login.equals(other.Login))
+		} else if (!login.equals(other.login))
 			return false;
 		if (admin == null) {
 			if (other.admin != null)
