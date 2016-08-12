@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Version;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Ville {
@@ -15,10 +17,18 @@ public class Ville {
 	private Integer idVil;
 	private String nom;
 	private List<AeroportVille> AeroportVille = new ArrayList<AeroportVille>();
-	
+	//private int version;
 	public Ville(){
 		
 	}
+//	@Version
+//	public int getVersion() {
+//		return version;
+//	}
+//
+//	public void setVersion(int version) {
+//		this.version = version;
+//	}
 
 	public Ville(Integer idVil, String nom) {
 		this.idVil = idVil;
@@ -36,6 +46,7 @@ public class Ville {
 	}
 
 	@Column(length = 100)
+	@Size(min=4, max=100, message="{ville.nom.error.size}")
 	public String getNom() {
 		return nom;
 	}
