@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Aeroport {
@@ -57,6 +58,7 @@ public class Aeroport {
 	}
 
 	@Column(length = 100)
+	@Size(min=4, max=500, message="{aeroportEdit.nom.error.size}")
 	public String getNom() {
 		return nom;
 	}

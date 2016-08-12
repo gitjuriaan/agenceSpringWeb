@@ -2,9 +2,12 @@ package agence.web;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,12 +49,12 @@ public class AeroportController {
 	}
 
 	@RequestMapping("/save")
-	public String save(@ModelAttribute("aeroport") Aeroport aeroport) {
+	public String save(@ModelAttribute("aeroport") @Valid Aeroport aeroport, BindingResult result) {
 
-		// if(result.hasErrors()) {
-		// return "aeroportEdit";
-		// }
-		//
+		 if(result.hasErrors()) {
+		 return "aeroportEdit";
+		 }
+		
 		if (aeroport.getIdAer() != null) {
 			aeroportDao.update(aeroport);
 		} else {
