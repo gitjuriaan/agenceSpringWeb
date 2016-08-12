@@ -24,8 +24,7 @@
 			<tr>
 				<th><spring:message code="aeroport.id" /></th>
 				<th><spring:message code="aeroport.nom" /></th>
-				<th><spring:message code="aeroport.edition" /></th>
-				<th><spring:message code="aeroport.suppression" /></th>
+				<th colspan = "2"></th>
 			</tr>
 
 			<c:forEach items="${aeroports}" var="aeroport">
