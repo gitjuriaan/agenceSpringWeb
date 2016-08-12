@@ -11,6 +11,10 @@
 </head>
 <body>
 <div >
+<jsp:include page="menu.jsp">
+			<jsp:param name="page" value="reservation" />
+		</jsp:include>
+		
 		<h2><spring:message code="reservation.titre"/></h2>
 		<table>
 			<tr>
