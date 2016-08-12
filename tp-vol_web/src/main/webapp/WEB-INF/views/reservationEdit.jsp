@@ -8,7 +8,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title><spring:message code="reservation.edit"/></title>
+<spring:url value="/resources/bootstrap.css" var="bootstrap" />
+<link href="${bootstrap}" rel="stylesheet" />
+<title><spring:message code="reservationEdit.edit"/></title>
 </head>
 <body>
 <div class="container">
@@ -16,13 +18,13 @@
 			<jsp:param name="page" value="reservation" />
 		</jsp:include>
 		<fieldset>
-			<legend><spring:message code="reservation.edit"/></legend>
+			<legend><spring:message code="reservationEdit.edit"/></legend>
 			<form:form method="post" modelAttribute="reservation" action="save">
 				<form:hidden path="idRes" />
 				<form:hidden path="version" />
 				
 				<div class="form-group">
-					<form:label path="etatReservation" class="control-label"><spring:message code="reservation.etatReservation"/></form:label>
+					<form:label path="etatReservation" class="control-label"><spring:message code="reservationEdit.etatReservation"/></form:label>
 					<form:select path="etatReservation" class="form-control">
 						<form:option value="" label="Veuillez sélectionner l'état de votre réservation" />
 						<c:forEach items="${etatReservations}" var="etatRerservation">						
@@ -36,14 +38,14 @@
 				
 				
 				<div class="form-group">
-					<form:label path="numero" class="control-label"><spring:message code="reservation.numero"/></form:label>
+					<form:label path="numero" class="control-label"><spring:message code="reservationEdit.numero"/></form:label>
 					<form:input path="numero" class="form-control" />
 					
 				</div>
 				
 				
 				<div class="form-group">
-					<form:label path="date" class="control-label"><spring:message code="reservation.date"/></form:label>
+					<form:label path="date" class="control-label"><spring:message code="reservationEdit.date"/></form:label>
 					<form:input path="date" class="form-control" type="date" />
 					
 				</div>

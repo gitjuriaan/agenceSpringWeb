@@ -12,6 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -48,6 +53,7 @@ public class Reservation {
 	}
 	
 	@Enumerated (EnumType.STRING)
+	@NotNull(message="{reservation.etateservation.required}")
 	public EtatReservation getEtatReservation() {
 		return etatReservation;
 	}
@@ -57,6 +63,8 @@ public class Reservation {
 	}
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Past(message="{reservation.date.error.size}")
 	public Date getDate() {
 		return date;
 	}
@@ -64,7 +72,8 @@ public class Reservation {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
+	
+	@Size(min=4, max=100, message="{reservation.numero.error.size}")
 	public String getNumero() {
 		return numero;
 	}
