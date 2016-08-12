@@ -27,12 +27,10 @@
 					<form:label path="etatReservation" class="control-label"><spring:message code="reservationEdit.etatReservation"/></form:label>
 					<form:select path="etatReservation" class="form-control">
 						<form:option value="" label="Veuillez sélectionner l'état de votre réservation" />
-						<c:forEach items="${etatReservations}" var="etatRerservation">						
 							<form:option value="ouvert" label="ouvert"/>
 							<form:option value="ferme" label="ferme"/>	
-						</c:forEach>
-
 					</form:select>
+					<form:errors path="etatReservation" class="label label-danger" />
 					
 				</div>
 				
@@ -40,6 +38,7 @@
 				<div class="form-group">
 					<form:label path="numero" class="control-label"><spring:message code="reservationEdit.numero"/></form:label>
 					<form:input path="numero" class="form-control" />
+					<form:errors path="numero" class="label label-danger" />
 					
 				</div>
 				
@@ -47,6 +46,7 @@
 				<div class="form-group">
 					<form:label path="date" class="control-label"><spring:message code="reservationEdit.date"/></form:label>
 					<form:input path="date" class="form-control" type="date" />
+					<form:errors path="date" class="label label-danger" />
 					
 				</div>
 
