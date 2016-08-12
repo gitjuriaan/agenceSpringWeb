@@ -57,7 +57,7 @@ public class ReservationController {
 	public String save(@ModelAttribute("reservation") @Valid Reservation reservation, BindingResult result,Model model) {
 		
 		if(result.hasErrors()) {
-			model.addAttribute("etatReservation", EtatReservation.values());
+			model.addAttribute("etatReservations", EtatReservation.values());
 			return "reservationEdit";
 		}
 		

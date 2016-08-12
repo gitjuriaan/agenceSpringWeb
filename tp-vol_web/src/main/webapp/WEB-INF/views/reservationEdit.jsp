@@ -28,10 +28,10 @@
 					<form:select path="etatReservation" class="form-control">
 						<form:option value="" label="Veuillez sélectionner l'état de votre réservation" />
 						<c:forEach items="${etatReservations}" var="etatRerservation">						
-							<form:option value="${etatReservation}">
-								<spring:message code="${etatReservation.label}" />
-							</form:option>
+							<form:option value="ouvert" label="ouvert"/>
+							<form:option value="ferme" label="ferme"/>	
 						</c:forEach>
+
 					</form:select>
 					
 				</div>
