@@ -19,10 +19,20 @@
 		<div class="container-fluid">
 
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/tp-vol_web/">
-				<spring:message code="menu.home" /></a>
+				<a class="navbar-brand" href="/tp-vol_web/"> <spring:message
+						code="menu.home" /></a>
 			</div>
 			<ul class="nav navbar-nav">
+
+
+				<c:if test="${param.page.equals('aeroport')}">
+					<li class="active"><a href="/tp-vol_web/aeroport/list"><spring:message
+								code="menu.aeroport" /></a></li>
+				</c:if>
+				<c:if test="${!param.page.equals('aeroport')}">
+					<li><a href="/tp-vol_web/aeroport/list"><spring:message
+								code="menu.aeroport" /></a></li>
+				</c:if>
 
 				<c:if test="${param.page.equals('client')}">
 					<li class="active"><a href="/tp-vol_web/client/list"><spring:message
@@ -54,14 +64,6 @@
 				</c:if>
 
 
-				<c:if test="${param.page.equals('login')}">
-					<li class="active"><a href="/tp-vol_web/login/list"><spring:message
-								code="menu.login" /></a></li>
-				</c:if>
-				<c:if test="${!param.page.equals('login')}">
-					<li><a href="/tp-vol_web/login/list"><spring:message
-								code="menu.login" /></a></li>
-				</c:if>
 
 				<c:if test="${param.page.equals('passager')}">
 					<li class="active"><a href="/tp-vol_web/passager/list"><spring:message
@@ -90,6 +92,14 @@
 								code="menu.vol" /></a></li>
 				</c:if>
 
+			</ul>
+
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+						Sign Up</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+						Login</a></li>
 			</ul>
 		</div>
 		</nav>

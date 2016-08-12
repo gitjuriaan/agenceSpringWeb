@@ -48,7 +48,7 @@ public class Passager {
 	}
 
 	@Column(length = 200)
-	@Size(min=1, max=200)
+	@Size(min=1, max=100, message="{passagerEdit.nom.error.size}")
 	public String getNom() {
 		return nom;
 	}
@@ -58,7 +58,7 @@ public class Passager {
 	}
 
 	@Column(length = 200)
-	@Size(min=1, max=200)
+	@Size(min=1, max=100, message="{passagerEdit.prenom.error.size}")
 	public String getPrenom() {
 		return prenom;
 	}

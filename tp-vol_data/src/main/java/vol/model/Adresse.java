@@ -71,25 +71,25 @@ public class Adresse {
 	}
 
 	@Column(length = 200)
-	@Size(min = 1, max = 200)
+	@Size(min=1, max=100, message="{adresse.adresse.error.size}")
 	public String getAdresse() {
 		return adresse;
 	}
 
 	@Column(length = 10)
-	@Size(min = 1, max = 10)
+	@Size(min=1, max=10, message="{adresse.codePostal.error.size}")
 	public String getCodePostal() {
 		return codePostal;
 	}
 
 	@Column(length = 200)
-	@Size(min = 1, max = 200)
+	@Size(min=1, max=200, message="{adresse.pays.error.size}")
 	public String getPays() {
 		return pays;
 	}
 
 	@Column(length = 200)
-	@Size(min = 1, max = 200)
+	@Size(min=1, max=200, message="{adresse.ville.error.size}")
 	public String getVille() {
 		return ville;
 	}

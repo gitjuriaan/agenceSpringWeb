@@ -23,47 +23,50 @@
 			<legend>
 				<spring:message code="passagerEdit.titre" />
 			</legend>
+			
 			<form:form method="post" modelAttribute="passager" action="save">
 				<form:hidden path="idPas" />
 				<form:hidden path="version" />
+				
+				
 				<div class="form-group">
 					<form:label path="nom" class="control-label">
 						<spring:message code="passagerEdit.nom" /> :</form:label>
 					<form:input path="nom" class="form-control" />
-					<form:errors path="nom" class="alert alert-danger" />
+					<form:errors path="nom" class="label label-danger" />
 				</div>
 				<div class="form-group">
 					<form:label path="prenom" class="control-label">
 						<spring:message code="passagerEdit.prenom" /> :</form:label>
 					<form:input path="prenom" class="form-control" />
-					<form:errors path="prenom" class="alert alert-danger" />
+					<form:errors path="prenom" class="label label-danger" />
 				</div>
 				<div class="form-group">
 					<form:label path="adresse.adresse" class="control-label">
 						<spring:message code="passagerEdit.adresse" /> :</form:label>
 					<form:input path="adresse.adresse" class="form-control" />
-					<form:errors path="adresse.adresse" class="alert alert-danger" />
+					<form:errors path="adresse.adresse" class="label label-danger" />
 				</div>
 				<div class="form-group">
 					<form:label path="adresse.codePostal" class="control-label">
 						<spring:message code="passagerEdit.codePostal" /> :</form:label>
 					<form:input path="adresse.codePostal" class="form-control" />
-					<form:errors path="adresse.codePostal" class="alert alert-danger" />
+					<form:errors path="adresse.codePostal" class="label label-danger" />
 				</div>
 				<div class="form-group">
 					<form:label path="adresse.ville" class="control-label">
 						<spring:message code="passagerEdit.ville" /> :</form:label>
 					<form:input path="adresse.ville" class="form-control" />
-					<form:errors path="adresse.ville" class="alert alert-danger" />
+					<form:errors path="adresse.ville" class="label label-danger" />
 				</div>
 				<div class="form-group">
 					<form:label path="adresse.pays" class="control-label">
 						<spring:message code="passagerEdit.pays" /> :</form:label>
 					<form:input path="adresse.pays" class="form-control" />
-					<form:errors path="adresse.pays" class="alert alert-danger" />
+					<form:errors path="adresse.pays" class="label label-danger" />
 				</div>
 
-				<input type="submit" value="Valider" class="btn btn-default" />
+				<input type="submit" value="<spring:message code="passagerEdit.valider" />" class="btn btn-default" />
 
 			</form:form>
 		</fieldset>
