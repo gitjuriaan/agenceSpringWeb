@@ -31,7 +31,7 @@ public class CompagnieAerienne {
 	}
 
 	@Version
-	public int getVersion() {
+	public int getVersion() { 
 		return version;
 	}
 

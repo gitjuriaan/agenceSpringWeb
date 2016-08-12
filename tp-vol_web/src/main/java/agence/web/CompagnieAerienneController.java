@@ -39,7 +39,7 @@ public class CompagnieAerienneController {
 	}
 
 	@RequestMapping("/edit") // url /edit
-	public String edit(@RequestParam(name = "id") Integer id, Model model) { // va
+	public String edit(@RequestParam(name = "id") Integer id, Model model) { // va 
 																				// cherche
 																				// l'id
 																				// dans

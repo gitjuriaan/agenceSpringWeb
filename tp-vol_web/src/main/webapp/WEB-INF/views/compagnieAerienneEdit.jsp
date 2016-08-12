@@ -21,7 +21,7 @@
 			<jsp:param name="page" value="compagnieAerienne" />
 		</jsp:include>
 
-
+ 
 		<h2>
 			<spring:message code="compagnieAerienneEdit.h2" />
 		</h2>
