@@ -27,6 +27,8 @@ import vol.model.dao.ClientDao;
 @RequestMapping("/client") // URL de base (doit être unique pour tte l'appli
 public class ClientController {
 	
+	
+	
 	@Autowired
 	private ClientDao clientDao;
 	
@@ -38,15 +40,17 @@ public class ClientController {
 		
 		return "client"; // nom du JSP
 	}
-	
+
 
 	
 	@RequestMapping("/addEI")
 	public String addClientEI(Model model) {
 		
-	
-		model.addAttribute("client",new ClientEI());
+		ClientEI clientEI = new ClientEI();
+		clientEI.setTypeClient("EI");
+		model.addAttribute("client",clientEI);
 		model.addAttribute("titre", Titre.values());
+		model.addAttribute("type", "saveEI");
 		
 		return "clientEdit";
 	}
@@ -54,9 +58,11 @@ public class ClientController {
 	@RequestMapping("/addMoral")
 	public String addClientMoral(Model model) {
 		
-	
-		model.addAttribute("client",new ClientMoral());
+		ClientMoral clientMoral = new ClientMoral();
+		clientMoral.setTypeClient("Moral");
+		model.addAttribute("client",clientMoral);
 		model.addAttribute("titre", Titre.values());
+		model.addAttribute("type", "saveMoral");
 		
 		return "clientEdit";
 	}
@@ -64,27 +70,41 @@ public class ClientController {
 	@RequestMapping("/addPhysique")
 	public String addClientPhysique(Model model) {
 		
-	
-		model.addAttribute("client",new ClientPhysique());
+		ClientPhysique clientPhysique = new ClientPhysique();
+		clientPhysique.setTypeClient("Physique");
+		model.addAttribute("client",clientPhysique);
 		model.addAttribute("titre", Titre.values());
+		model.addAttribute("type", "savePhysique");
 		
 		return "clientEdit";
 	}
 	
 	
 	@RequestMapping("/edit")
-	public String edit(@RequestParam (name = "id") Integer id, Model model) {
+	public String edit(@RequestParam (name = "idCli") Integer idCli, Model model) {
 		
-        Client objClient = clientDao.find(id);
+        Client objClient = clientDao.find(idCli);
 
         model.addAttribute("client", objClient);
         model.addAttribute("titre", Titre.values());
+        
+        if(objClient.getTypeClient().equals("EI")){
+        	model.addAttribute("type", "saveEI");
+        }
+        else if(objClient.getTypeClient().equals("Moral")){
+        	model.addAttribute("type", "saveMoral");
+        }
+        else if(objClient.getTypeClient().equals("Physique")){
+        	model.addAttribute("type", "savePhysique");
+        }
 		
 		return "clientEdit";
 	}
 	
-	@RequestMapping("/save")
-	public String save(@ModelAttribute("client") @Valid Client client, BindingResult result, Model model) {
+	
+	
+	@RequestMapping("/saveEI")
+	public String saveEI(@ModelAttribute("client") @Valid ClientEI clientEI, BindingResult result, Model model) {
 		// BindingResult objet de récupération d'erreur
 		if(result.hasErrors()) {
 			
@@ -92,10 +112,46 @@ public class ClientController {
 			return "clientEdit";
 		}
 		
-		if(client.getIdCli() != null) {
-			clientDao.update(client);
+		if(clientEI.getIdCli() != null) {
+			clientDao.update(clientEI);
 		} else { 
-			clientDao.create(client);
+			clientDao.create(clientEI);
+		}
+		
+		return "redirect:list";
+	}
+	
+	@RequestMapping("/saveMoral")
+	public String saveMoral(@ModelAttribute("client") @Valid ClientMoral clientMoral, BindingResult result, Model model) {
+		// BindingResult objet de récupération d'erreur
+		if(result.hasErrors()) {
+			
+			model.addAttribute("titre", Titre.values());
+			return "clientEdit";
+		}
+		
+		if(clientMoral.getIdCli() != null) {
+			clientDao.update(clientMoral);
+		} else { 
+			clientDao.create(clientMoral);
+		}
+		
+		return "redirect:list";
+	}
+	
+	@RequestMapping("/savePhysique")
+	public String savePhysique(@ModelAttribute("client") @Valid ClientPhysique clientPhysique, BindingResult result, Model model) {
+		// BindingResult objet de récupération d'erreur
+		if(result.hasErrors()) {
+			
+			model.addAttribute("titre", Titre.values());
+			return "clientEdit";
+		}
+		
+		if(clientPhysique.getIdCli() != null) {
+			clientDao.update(clientPhysique);
+		} else { 
+			clientDao.create(clientPhysique);
 		}
 		
 		return "redirect:list";

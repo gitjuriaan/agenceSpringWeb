@@ -46,8 +46,7 @@
 				<th><spring:message code="client.login.mdp" /></th>
 				<th><spring:message code="client.login.admin" /></th>
 
-				<td><spring:message code="client.edition" /></td>
-				<td><spring:message code="client.suppression" /></td>
+				<td colspan="2"></td>
 			</tr>
 
 			<c:forEach items="${listClient}" var="client">

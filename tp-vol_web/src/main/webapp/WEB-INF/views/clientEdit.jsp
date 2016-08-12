@@ -20,16 +20,17 @@
 
 	<div class="container">
 		<fieldset>
-			<legend>Edition du client ${client.nom} ${client.prenom}</legend>
+			<legend>Edition du client </legend>
 			
 			
+<%-- 			<c:url var="save"    value="/actions/message/add" /> --%>
+<%-- 			<c:if test="${client.typeClient.equals('EI')}">value="saveEI"</c:if> --%>
+<%-- 			<c:if test="${client.typeClient.equals('Moral')}">value="saveMoral"</c:if> --%>
+<%-- 			<c:if test="${client.typeClient.equals('Physique')}">value="savePhysique"</c:if> --%>
 			
-			
-			<form:form method="post" modelAttribute="client" action="save">
-
-
-
-
+			 
+		
+			<form:form method="post" modelAttribute="client" action="${type}">
 
 
 				<form:hidden path="idCli" />
@@ -54,11 +55,31 @@
 					<form:errors path="nom"/>
 				</div>
 
-				<div class="form-group">
+				<c:if test="${client.typeClient.equals('EI')}">
+					<div class="form-group">
 					<form:label path="prenom"><spring:message code="client.prenom"/></form:label>
 					<form:input path="prenom" class="form-control" />
 					<form:errors path="prenom"/>
 				</div>
+				</c:if>
+				
+				<c:if test="${client.typeClient.equals('Physique')}">
+					<div class="form-group">
+					<form:label path="prenom"><spring:message code="client.prenom"/></form:label>
+					<form:input path="prenom" class="form-control" />
+					<form:errors path="prenom"/>
+				</div>
+				</c:if>
+				
+				<c:if test="${client.typeClient.equals('Moral')}">
+					<div class="form-group">
+					<form:label path="siret"><spring:message code="client.siret"/></form:label>
+					<form:input path="siret" class="form-control" />
+					<form:errors path="siret"/>
+				</div>
+				</c:if>
+
+				
 
 
 				<div class="form-group">
@@ -123,6 +144,8 @@
 				<input type="submit" value="<spring:message code="client.valider"/>" class="btn btn-default" />
 
 			</form:form>
+			
+			
 		</fieldset>
 	</div>
 
