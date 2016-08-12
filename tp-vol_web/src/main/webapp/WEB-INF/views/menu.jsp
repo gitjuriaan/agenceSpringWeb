@@ -53,18 +53,6 @@
 								code="menu.compagnieAerienne" /></a></li>
 				</c:if>
 
-				<c:if test="${param.page.equals('compagnieAerienneVol')}">
-					<li class="active"><a
-						href="/tp-vol_web/compagnieAerienneVol/list"><spring:message
-								code="menu.compagnieAerienneVol" /></a></li>
-				</c:if>
-				<c:if test="${!param.page.equals('compagnieAerienneVol')}">
-					<li><a href="/tp-vol_web/compagnieAerienneVol/list"><spring:message
-								code="menu.compagnieAerienneVol" /></a></li>
-				</c:if>
-
-
-
 				<c:if test="${param.page.equals('passager')}">
 					<li class="active"><a href="/tp-vol_web/passager/list"><spring:message
 								code="menu.passager" /></a></li>
@@ -94,12 +82,10 @@
 
 			</ul>
 
-
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-						Sign Up</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-						Login</a></li>
+				<li><a href="#">
+						<spring:message
+								code="menu.login" /></a></li>
 			</ul>
 		</div>
 		</nav>
