@@ -10,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Passager {
 
-	private int idPas;
+	private Integer idPas;
 	private int version;
 	private String nom;
 	private String prenom;
@@ -22,6 +24,7 @@ public class Passager {
 	private List<Reservation> listReservation = new ArrayList<Reservation>();
 
 	@Embedded
+	@Valid
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -34,17 +37,18 @@ public class Passager {
 		super();
 	}
 
-	public void setIdPas(int idPas) {
+	public void setIdPas(Integer idPas) {
 		this.idPas = idPas;
 	}
 
 	@Id
 	@GeneratedValue
-	public int getIdPas() {
+	public Integer getIdPas() {
 		return idPas;
 	}
 
 	@Column(length = 200)
+	@Size(min=1, max=200)
 	public String getNom() {
 		return nom;
 	}
@@ -54,6 +58,7 @@ public class Passager {
 	}
 
 	@Column(length = 200)
+	@Size(min=1, max=200)
 	public String getPrenom() {
 		return prenom;
 	}
@@ -91,7 +96,7 @@ public class Passager {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
-		result = prime * result + idPas;
+		result = prime * result + ((idPas == null) ? 0 : adresse.hashCode());
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		return result;

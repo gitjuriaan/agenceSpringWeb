@@ -5,6 +5,7 @@ package vol.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Size;
 
 @Embeddable
 public class Adresse {
@@ -17,8 +18,6 @@ public class Adresse {
 	public Adresse() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public Adresse(String adresse, String codePostal, String ville, String pays) {
 		super();
@@ -27,8 +26,6 @@ public class Adresse {
 		this.ville = ville;
 		this.pays = pays;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -40,8 +37,6 @@ public class Adresse {
 		result = prime * result + ((ville == null) ? 0 : ville.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -75,24 +70,26 @@ public class Adresse {
 		return true;
 	}
 
-
-
 	@Column(length = 200)
+	@Size(min = 1, max = 200)
 	public String getAdresse() {
 		return adresse;
 	}
 
 	@Column(length = 10)
+	@Size(min = 1, max = 10)
 	public String getCodePostal() {
 		return codePostal;
 	}
-	
+
 	@Column(length = 200)
+	@Size(min = 1, max = 200)
 	public String getPays() {
 		return pays;
 	}
 
 	@Column(length = 200)
+	@Size(min = 1, max = 200)
 	public String getVille() {
 		return ville;
 	}
