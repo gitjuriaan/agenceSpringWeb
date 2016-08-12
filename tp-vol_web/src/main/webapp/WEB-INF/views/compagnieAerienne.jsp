@@ -26,8 +26,7 @@
 			<tr>
 				<th><spring:message code="compagnieAerienne.id"/></th>
 				<th><spring:message code="compagnieAerienne.nom"/></th>
-				<td><spring:message code="compagnieAerienne.edition"/></td>
-				<td><spring:message code="compagnieAerienne.suppression"/></td>
+				<td colspan="2"></td>
 			</tr>
 
 			<c:forEach items="${compagnieAeriennes}" var="compagnieAerienne">

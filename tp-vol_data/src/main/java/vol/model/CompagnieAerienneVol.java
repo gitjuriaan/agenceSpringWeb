@@ -1,8 +1,11 @@
 package vol.model;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class CompagnieAerienneVol {
@@ -40,6 +43,8 @@ public class CompagnieAerienneVol {
 		this.version = version;
 	}
 
+	@Size(min=2, max=100, message="{compagnieAerienneVol.numero.error.size}")
+	@Column(length = 100)
 	public String getNumero() {
 		return numero;
 	}
@@ -48,6 +53,7 @@ public class CompagnieAerienneVol {
 		this.numero = numero;
 	}
 
+	@NotNull(message="{compagnieAerienneVol.ouvert.error.notNull}")
 	public Boolean getOuvert() {
 		return ouvert;
 	}

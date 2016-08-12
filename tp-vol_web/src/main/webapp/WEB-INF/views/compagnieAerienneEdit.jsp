@@ -24,7 +24,7 @@
  
 		<h2>
 			<spring:message code="compagnieAerienneEdit.h2" />
-		</h2>
+		</h2> 
 
 		<fieldset>
 			<legend>
@@ -37,16 +37,16 @@
 				<form:hidden path="version" />
 
 				<div class="form-group">
-					<form:label path="nom" class="control-label col-sm-2">
+					<form:label path="nom" class="control-label">
 						<spring:message code="compagnieAerienneEdit.nom" />
 					</form:label>
-						<form:input path="nom" class="form" />
+						<form:input path="nom" class="form-control" />
 					<form:errors path="nom" class="label label-danger" />
 				</div>
 
 				<tr>
 					<td colspan="2"><input type="submit"
-						value="<spring:message code="btnValider"/>" class="btn" /></td>
+						value="<spring:message code="btnValider"/>" class="btn btn-default" /></td>
 				</tr>
 			</form:form>
 		</fieldset>

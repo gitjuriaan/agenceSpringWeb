@@ -5,9 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Embeddable
-
 public class CompagnieAerienneVolId implements Serializable{
 	
 	private CompagnieAerienne compagnieAerienne;
@@ -26,6 +26,7 @@ public class CompagnieAerienneVolId implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="compagnieAerienneId")
+	@NotNull(message="{compagnieAerienneVol.compagnieAerienne.error.notNull}")
 	public CompagnieAerienne getCompagnieAerienne() {
 		return compagnieAerienne;
 	}
@@ -36,6 +37,7 @@ public class CompagnieAerienneVolId implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="volId")
+	@NotNull(message="{compagnieAerienneVol.vol.error.notNull}")
 	public Vol getVol() {
 		return vol;
 	}
