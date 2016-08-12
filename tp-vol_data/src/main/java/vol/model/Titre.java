@@ -1,7 +1,8 @@
 package vol.model;
 
 public enum Titre {
-	M("titre.M"), MME("titre.MME"), MLLE("titre.MLLE");
+//	M("titre.M"), MME("titre.MME"), MLLE("titre.MLLE");
+	M("Monsieur"), MME("Madame"), MLLE("Mademoiselle");
 
 	private final String label;
 
