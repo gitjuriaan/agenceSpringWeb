@@ -37,6 +37,7 @@ public abstract class Client {
 	/**
 	 * 
 	 */
+	private String typeClient;
 	private Integer idCli;
 	private String nom;
 	private String numeroTel;
@@ -47,6 +48,16 @@ public abstract class Client {
 	private List<Reservation> reservations = new ArrayList<Reservation>();
 	private Adresse adresse;
 	private Login Log;
+
+	
+	 @Column(name = "typeClient", insertable = false, updatable = false)
+	public String getTypeClient() {
+		return typeClient;
+	}
+
+	public void setTypeClient(String typeClient) {
+		this.typeClient = typeClient;
+	}
 
 	public Client() {
 	}
